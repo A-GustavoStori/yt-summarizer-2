@@ -1,3 +1,3 @@
 import 'antd/dist/antd.css';
-import './contentScript.js';
-import './contentScript.css';
+import './ui.js';
+import './ui.css';

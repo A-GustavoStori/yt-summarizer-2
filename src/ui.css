@@ -50,7 +50,7 @@ body, html, div, p, button {
   margin: 0;
 }
 
-#summary-btn, #transcription-btn, #copy-btn {
+#summary-btn {
   background-color: #2E62FF;
   color: #fff;
   border: none;
@@ -62,7 +62,43 @@ body, html, div, p, button {
   font-size: 14px;
   display: flex;
   align-items: center;
-  width: 116px;
+  width: 106px;
+  height: 36px;
+  padding: 0;
+  justify-content: center;
+}
+
+#transcription-btn {
+  background-color: #2E62FF;
+  color: #fff;
+  border: none;
+  padding: 10px 30px;
+  cursor: pointer;
+  border-radius: 10px;
+  box-shadow: 0 2px 0 rgba(109, 53, 253, 0.09);
+  transition: background-color 0.3s ease;
+  font-size: 14px;
+  display: flex;
+  align-items: center;
+  width: 120px;
+  height: 36px;
+  padding: 0;
+  justify-content: center;
+}
+
+ #copy-btn {
+  background-color: #2E62FF;
+  color: #fff;
+  border: none;
+  padding: 10px 30px;
+  cursor: pointer;
+  border-radius: 10px;
+  box-shadow: 0 2px 0 rgba(109, 53, 253, 0.09);
+  transition: background-color 0.3s ease;
+  font-size: 14px;
+  display: flex;
+  align-items: center;
+  width: 76px;
   height: 36px;
   padding: 0;
   justify-content: center;

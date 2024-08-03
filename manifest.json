@@ -1,30 +1,38 @@
 {
   "name": "Free YT Summarizer",
-  "version": "0.1.0",
+  "version": "2.1.0",
   "description": "Free Youtube video summarizer with local LLM",
-  "permissions": ["storage", "tabs"],
-  "host_permissions": ["https://*.youtube.com/*"],
+  "permissions": [
+    "storage",
+    "tabs",
+    "activeTab"
+  ],
+  "host_permissions": [
+    "https://*.youtube.com/*",
+    "http://localhost:11434/*"
+  ],
   "background": {
-    "service_worker": "src/background.js"
+    "service_worker": "src/backend.js"
   },
   "content_scripts": [
     {
       "matches": ["https://*.youtube.com/*"],
-      "js": ["src/contentScript.js"],
-      "css": ["src/contentScript.css"]
+      "js": ["src/ui.js"],
+      "css": ["src/ui.css"]
     }
   ],
   "web_accessible_resources": [
     {
       "resources": [
         "src/assets/ext-icon.png",
-        "node_modules/antd/dist/antd.min.css",
-        "node_modules/antd/dist/antd.min.js"
+        "src/popup.html",
+        "src/popup.js"
       ],
       "matches": ["https://*.youtube.com/*"]
     }
   ],
   "action": {
+    "default_popup": "src/popup.html",
     "default_icon": {
       "16": "src/assets/ext-icon.png",
       "24": "src/assets/ext-icon.png",
