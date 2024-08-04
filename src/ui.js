@@ -81,7 +81,7 @@ const handleSummaryButtonClick = async () => {
 
     setTimeout(() => {
       const transcriptText = getTranscriptText();
-      console.log("Fetched transcript text:", transcriptText); // Log fetched transcript
+      console.log("Fetched transcript text:", transcriptText);
       if (transcriptText.length > 0) {
         console.log("Sending fetchSummary request to backend script...");
         chrome.runtime.sendMessage({ action: "fetchSummary", prompt: transcriptText }, (response) => {
@@ -89,28 +89,27 @@ const handleSummaryButtonClick = async () => {
             console.error("Error sending message:", chrome.runtime.lastError.message);
             setLoadingState(false);
             loadSummary("Failed to send request to backend script.");
-          } else if (response.success) {
-            console.log("Response from backend script:", response.data);
           } else {
-            console.error("Backend script error:", response.error);
+            console.log("Received response from backend script:", response);
           }
         });
       } else {
         console.log("Transcript text is empty. Retrying...");
         setTimeout(() => {
           const retryTranscriptText = getTranscriptText();
-          console.log("Retry fetched transcript text:", retryTranscriptText); // Log fetched transcript on retry
+          console.log("Retry fetched transcript text:", retryTranscriptText);
           if (retryTranscriptText.length > 0) {
             console.log("Sending fetchSummary request to backend script...");
             chrome.runtime.sendMessage({ action: "fetchSummary", prompt: retryTranscriptText });
           } else {
             console.log("Transcript text is still empty after retry.");
+            setLoadingState(false);
             loadSummary("Transcript not available or failed to load.");
           }
-        }, 3000); // Retry after an additional 3 seconds
+        }, 3000);
       }
-    }, 3000); // Initial delay to ensure transcription is loaded
-  }, 3000); // Delay to ensure section is expanded
+    }, 3000);
+  }, 3000);
 };
 
 
@@ -249,14 +248,26 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 });
 
+// Add this function to verify the endpoint
+const verifyEndpoint = () => {
+  chrome.runtime.sendMessage({ action: "verifyEndpoint" }, (response) => {
+    if (chrome.runtime.lastError) {
+      console.error("Error verifying endpoint:", chrome.runtime.lastError.message);
+    } else {
+      console.log("Current endpoint:", response.endpoint);
+    }
+  });
+};
+
+// Call verifyEndpoint when the extension loads
+verifyEndpoint();
+
 chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
-  console.log("Message received from backend script:", message);
+  console.log("Message received in content script:", message);
   if (message.action === "loadSummary") {
-    console.log("Action is loadSummary, loading summary...");
+    console.log("Loading summary:", message.summary);
     loadSummary(message.summary);
-  } else if (message.action === "setLoadingState") {
-    console.log("Action is setLoadingState, setting loading state...");
-    setLoadingState(message.state);
+    setLoadingState(false);
   } else {
     console.log("Unknown action received:", message.action);
   }
