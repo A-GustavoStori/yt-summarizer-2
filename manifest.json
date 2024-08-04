@@ -6,16 +6,14 @@
     "storage",
     "tabs",
     "activeTab",
-    "http://localhost/*"
-
+    "scripting"
   ],
   "host_permissions": [
     "https://*.youtube.com/*",
-    "http://localhost/*"
+    "http://localhost:11434/*"
   ],
   "background": {
-    "service_worker": "src/backend.js",
-    "persistent": false
+    "service_worker": "src/backend.js"
   },
   "content_scripts": [
     {
