@@ -1,18 +1,21 @@
 {
   "name": "Free YT Summarizer",
-  "version": "2.1.0",
+  "version": "1.0.0",
   "description": "Free Youtube video summarizer with local LLM",
   "permissions": [
     "storage",
     "tabs",
-    "activeTab"
+    "activeTab",
+    "http://localhost/*"
+
   ],
   "host_permissions": [
     "https://*.youtube.com/*",
-    "http://localhost:11434/*"
+    "http://localhost/*"
   ],
   "background": {
-    "service_worker": "src/backend.js"
+    "service_worker": "src/backend.js",
+    "persistent": false
   },
   "content_scripts": [
     {

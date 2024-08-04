@@ -84,7 +84,17 @@ const handleSummaryButtonClick = async () => {
       console.log("Fetched transcript text:", transcriptText); // Log fetched transcript
       if (transcriptText.length > 0) {
         console.log("Sending fetchSummary request to backend script...");
-        chrome.runtime.sendMessage({ action: "fetchSummary", prompt: transcriptText });
+        chrome.runtime.sendMessage({ action: "fetchSummary", prompt: transcriptText }, (response) => {
+          if (chrome.runtime.lastError) {
+            console.error("Error sending message:", chrome.runtime.lastError.message);
+            setLoadingState(false);
+            loadSummary("Failed to send request to backend script.");
+          } else if (response.success) {
+            console.log("Response from backend script:", response.data);
+          } else {
+            console.error("Backend script error:", response.error);
+          }
+        });
       } else {
         console.log("Transcript text is empty. Retrying...");
         setTimeout(() => {
@@ -102,6 +112,7 @@ const handleSummaryButtonClick = async () => {
     }, 3000); // Initial delay to ensure transcription is loaded
   }, 3000); // Delay to ensure section is expanded
 };
+
 
 const handleTranscriptionButtonClick = async () => {
   console.log("Transcription button clicked");

@@ -1,41 +1,16 @@
-const sendMessageToTab = (tabId, message) => {
-  chrome.tabs.sendMessage(tabId, message, (response) => {
-    if (chrome.runtime.lastError) {
-      console.log("Error sending message:", chrome.runtime.lastError);
-      setTimeout(() => sendMessageToTab(tabId, message), 1000);
-    } else {
-      console.log("Message sent to tab:", response);
-    }
-  });
-};
-
-chrome.tabs.onUpdated.addListener((tabId, changeInfo, tab) => {
-  if (changeInfo.status === 'complete' && tab.url && tab.url.includes("youtube.com/watch")) {
-    const queryParameters = tab.url.split("?")[1];
-    const urlParameters = new URLSearchParams(queryParameters);
-
-    sendMessageToTab(tabId, {
-      type: "NEW",
-      videoId: urlParameters.get("v"),
-    });
-  }
-});
-
 const getEndpointFromStorage = async () => {
   return new Promise((resolve) => {
     chrome.storage.sync.get('endpoint', (data) => {
-      resolve(data.endpoint);
+      resolve(data.endpoint || 'http://localhost:11434/api/generate');
     });
   });
 };
 
 const fetchSummary = async (transcriptText) => {
   console.log("Starting fetchSummary function...");
-  console.log("Transcript text received:", transcriptText);
-
   try {
     const endpoint = await getEndpointFromStorage();
-    console.log(`Using endpoint from storage: ${endpoint}`);
+    console.log(`Using endpoint: ${endpoint}`);
 
     const payload = {
       model: "phi3",
@@ -43,62 +18,46 @@ const fetchSummary = async (transcriptText) => {
       stream: false
     };
 
-    console.log("Payload being sent:", JSON.stringify(payload, null, 2));
+    const controller = new AbortController();
+    const timeoutId = setTimeout(() => controller.abort(), 30000);
 
-    console.log("Sending request to endpoint...");
     const response = await fetch(endpoint, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
+        'Origin': chrome.runtime.getURL('')
       },
       body: JSON.stringify(payload),
+      signal: controller.signal
     });
 
-    console.log("Request sent to the local LLM.");
-    console.log("Waiting for LLM generate response...");
-
-    console.log("Response status received:", response.status);
+    clearTimeout(timeoutId);
 
     if (!response.ok) {
       const errorText = await response.text();
-      console.error(`HTTP error! status: ${response.status}, body: ${errorText}`);
-      throw new Error(`HTTP error! status: ${response.status}`);
+      throw new Error(`HTTP error! status: ${response.status}, body: ${errorText}`);
     }
 
-    console.log("Parsing response data...");
     const data = await response.json();
-    console.log("Received data:", data);
-
-    const summaryText = data.response;
-    console.log("Received summary:", summaryText);
-
-    console.log("Sending summary back to content script...");
-    chrome.runtime.sendMessage({ action: "loadSummary", summary: summaryText });
+    return data.response;
   } catch (err) {
     console.error("Error in fetchSummary function:", err);
-    console.log("Sending error message back to content script...");
-    chrome.runtime.sendMessage({ action: "loadSummary", summary: "An error occurred while generating the summary. Please try again." });
+    throw err;
   }
 };
 
 chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
-  console.log("Received message:", request);
   if (request.action === "fetchSummary") {
-    console.log("Action is fetchSummary, calling fetchSummary function...");
     fetchSummary(request.prompt)
-      .then(data => {
-        console.log("fetchSummary function completed successfully.");
-        sendResponse({ success: true, data: data });
+      .then(summary => {
+        chrome.tabs.sendMessage(sender.tab.id, { action: "loadSummary", summary: summary });
       })
       .catch(error => {
-        console.error('Error in message listener:', error);
-        sendResponse({ success: false, error: error.toString() });
+        chrome.tabs.sendMessage(sender.tab.id, { 
+          action: "loadSummary", 
+          summary: `An error occurred: ${error.message}. Please try again.`
+        });
       });
-    return true;  // Indicates that the response is sent asynchronously
+    return true;  // Keeps the message channel open for the asynchronous response
   }
-  console.log("Action is not fetchSummary, no action taken.");
 });
-
-const setLoadingState = (state) => {
-  chrome.runtime.sendMessage({ action: "setLoadingState", state: state });
-};
