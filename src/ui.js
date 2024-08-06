@@ -5,8 +5,8 @@ const setLoadingState = (state) => {
   if (summaryButton) {
     summaryButton.disabled = state;
     summaryButton.innerHTML = state
-      ? `<span class="ant-btn-loading-icon"><span role="img" aria-label="loading" class="anticon anticon-loading anticon-spin"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 1024" class="loading-icon"><path d="M512 1024c-69.1 0-136.2-13.5-199.3-40.2C251.7 958 197 921 150 874c-47-47-84-101.7-109.8-162.7C13.5 648.2 0 581.1 0 512c0-19.9 16.1-36 36-36s36 16.1 36 36c0 59.4 11.6 117 34.6 171.3 22.2 52.4 53.9 99.5 94.3 139.9 40.4 40.4 87.5 72.2 139.9 94.3C395 940.4 452.6 952 512 952c59.4 0 117-11.6 171.3-34.6 52.4-22.2 99.5-53.9 139.9-94.3 40.4-40.4 72.2-87.5 94.3-139.9C940.4 629 952 571.4 952 512c0-59.4-11.6-117-34.6-171.3a440.45 440.45 0 0 0-94.3-139.9 437.71 437.71 0 0 0-139.9-94.3C629 83.6 571.4 72 512 72c-19.9 0-36-16.1-36-36s16.1-36 36-36c69.1 0 136.2 13.5 199.3 40.2C772.3 66 827 103 874 150c47 47 83.9 101.8 109.7 162.7 26.7 63.1 40.2 130.2 40.2 199.3s-13.5 136.2-40.2 199.3C958 772.3 921 827 874 874c-47 47-101.8 83.9-162.7 109.7-63.1 26.8-130.2 40.3-199.3 40.3z" fill="#ffffff"/></svg></span> Loading...`
-      : '<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 16 16" fill="none"><path fill-rule="evenodd" clip-rule="evenodd" d="M4.66683 3.99998C4.66683 3.63179 4.96531 3.33331 5.3335 3.33331H12.0002C12.3684 3.33331 12.6668 3.63179 12.6668 3.99998C12.6668 4.36817 12.3684 4.66665 12.0002 4.66665H5.3335C4.96531 4.66665 4.66683 4.36817 4.66683 3.99998Z" fill="currentColor"></path><path fill-rule="evenodd" clip-rule="evenodd" d="M4.66683 7.99998C4.66683 7.63179 4.96531 7.33331 5.3335 7.33331H14.0002C14.3684 7.33331 14.6668 7.63179 14.6668 7.99998C14.6668 8.36817 14.3684 8.66665 14.0002 8.66665H5.3335C4.96531 8.66665 4.66683 8.36817 4.66683 7.99998Z" fill="currentColor"></path><path fill-rule="evenodd" clip-rule="evenodd" d="M4.66683 12C4.66683 11.6318 4.96531 11.3333 5.3335 11.3333H9.3335C9.70169 11.3333 10.0002 11.6318 10.0002 12C10.0002 12.3682 9.70169 12.6666 9.3335 12.6666H5.3335C4.96531 12.6666 4.66683 12.3682 4.66683 12Z" fill="currentColor"></path><path d="M2.66683 3.99998C2.66683 4.36817 2.36835 4.66665 2.00016 4.66665C1.63197 4.66665 1.3335 4.36817 1.3335 3.99998C1.3335 3.63179 1.63197 3.33331 2.00016 3.33331C2.36835 3.33331 2.66683 3.63179 2.66683 3.99998Z" fill="currentColor"></path><path d="M2.66683 7.99998C2.66683 8.36817 2.36835 8.66665 2.00016 8.66665C1.63197 8.66665 1.3335 8.36817 1.3335 7.99998C1.3335 7.63179 1.63197 7.33331 2.00016 7.33331C2.36835 7.33331 2.66683 7.63179 2.66683 7.99998Z" fill="currentColor"></path><path d="M2.66683 12C2.66683 12.3682 2.36835 12.6666 2.00016 12.6666C1.63197 12.6666 1.3335 12.3682 1.3335 12C1.3335 11.6318 1.63197 11.3333 2.00016 11.3333C2.36835 11.3333 2.66683 11.6318 2.66683 12Z" fill="currentColor"></path></svg> Summary';
+        ? `<span class="ant-btn-loading-icon"><span role="img" aria-label="loading" class="anticon anticon-loading anticon-spin"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 1024" class="loading-icon"><path d="M512 1024c-69.1 0-136.2-13.5-199.3-40.2C251.7 958 197 921 150 874c-47-47-84-101.7-109.8-162.7C13.5 648.2 0 581.1 0 512c0-19.9 16.1-36 36-36s36 16.1 36 36c0 59.4 11.6 117 34.6 171.3 22.2 52.4 53.9 99.5 94.3 139.9 40.4 40.4 87.5 72.2 139.9 94.3C395 940.4 452.6 952 512 952c59.4 0 117-11.6 171.3-34.6 52.4-22.2 99.5-53.9 139.9-94.3 40.4-40.4 72.2-87.5 94.3-139.9C940.4 629 952 571.4 952 512c0-59.4-11.6-117-34.6-171.3a440.45 440.45 0 0 0-94.3-139.9 437.71 437.71 0 0 0-139.9-94.3C629 83.6 571.4 72 512 72c-19.9 0-36-16.1-36-36s16.1-36 36-36c69.1 0 136.2 13.5 199.3 40.2C772.3 66 827 103 874 150c47 47 83.9 101.8 109.7 162.7 26.7 63.1 40.2 130.2 40.2 199.3s-13.5 136.2-40.2 199.3C958 772.3 921 827 874 874c-47 47-101.8 83.9-162.7 109.7-63.1 26.8-130.2 40.3-199.3 40.3z" fill="#ffffff"/></svg></span> Loading...`
+        : '<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 16 16" fill="none"><path fill-rule="evenodd" clip-rule="evenodd" d="M4.66683 3.99998C4.66683 3.63179 4.96531 3.33331 5.3335 3.33331H12.0002C12.3684 3.33331 12.6668 3.63179 12.6668 3.99998C12.6668 4.36817 12.3684 4.66665 12.0002 4.66665H5.3335C4.96531 4.66665 4.66683 4.36817 4.66683 3.99998Z" fill="currentColor"></path><path fill-rule="evenodd" clip-rule="evenodd" d="M4.66683 7.99998C4.66683 7.63179 4.96531 7.33331 5.3335 7.33331H14.0002C14.3684 7.33331 14.6668 7.63179 14.6668 7.99998C14.6668 8.36817 14.3684 8.66665 14.0002 8.66665H5.3335C4.96531 8.66665 4.66683 8.36817 4.66683 7.99998Z" fill="currentColor"></path><path fill-rule="evenodd" clip-rule="evenodd" d="M4.66683 12C4.66683 11.6318 4.96531 11.3333 5.3335 11.3333H9.3335C9.70169 11.3333 10.0002 11.6318 10.0002 12C10.0002 12.3682 9.70169 12.6666 9.3335 12.6666H5.3335C4.96531 12.6666 4.66683 12.3682 4.66683 12Z" fill="currentColor"></path><path d="M2.66683 3.99998C2.66683 4.36817 2.36835 4.66665 2.00016 4.66665C1.63197 4.66665 1.3335 4.36817 1.3335 3.99998C1.3335 3.63179 1.63197 3.33331 2.00016 3.33331C2.36835 3.33331 2.66683 3.63179 2.66683 3.99998Z" fill="currentColor"></path><path d="M2.66683 7.99998C2.66683 8.36817 2.36835 8.66665 2.00016 8.66665C1.63197 8.66665 1.3335 8.36817 1.3335 7.99998C1.3335 7.63179 1.63197 7.33331 2.00016 7.33331C2.36835 7.33331 2.66683 7.63179 2.66683 7.99998Z" fill="currentColor"></path><path d="M2.66683 12C2.66683 12.3682 2.36835 12.6666 2.00016 12.6666C1.63197 12.6666 1.3335 12.3682 1.3335 12C1.3335 11.6318 1.63197 11.3333 2.00016 11.3333C2.36835 11.3333 2.66683 11.6318 2.66683 12Z" fill="currentColor"></path></svg> Summary';
   }
 };
 
@@ -47,9 +47,15 @@ const createUI = () => {
   copyButton.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 14 14" fill="none"><path fill-rule="evenodd" clip-rule="evenodd" d="M1.1665 2.91663C1.1665 1.95013 1.95001 1.16663 2.9165 1.16663H7.58317C8.54967 1.16663 9.33317 1.95013 9.33317 2.91663V3.49996C9.33317 3.82213 9.072 4.08329 8.74984 4.08329C8.42767 4.08329 8.1665 3.82213 8.1665 3.49996V2.91663C8.1665 2.59446 7.90534 2.33329 7.58317 2.33329H2.9165C2.59434 2.33329 2.33317 2.59446 2.33317 2.91663V7.58329C2.33317 7.90546 2.59434 8.16663 2.9165 8.16663H3.49984C3.822 8.16663 4.08317 8.42779 4.08317 8.74996C4.08317 9.07213 3.822 9.33329 3.49984 9.33329H2.9165C1.95001 9.33329 1.1665 8.54979 1.1665 7.58329V2.91663ZM4.6665 6.41663C4.6665 5.45013 5.45001 4.66663 6.4165 4.66663H11.0832C12.0497 4.66663 12.8332 5.45013 12.8332 6.41663V11.0833C12.8332 12.0498 12.0497 12.8333 11.0832 12.8333H6.4165C5.45001 12.8333 4.6665 12.0498 4.6665 11.0833V6.41663ZM6.4165 5.83329C6.09434 5.83329 5.83317 6.09446 5.83317 6.41663V11.0833C5.83317 11.4055 6.09434 11.6666 6.4165 11.6666H11.0832C11.4053 11.6666 11.6665 11.4055 11.6665 11.0833V6.41663C11.6665 6.09446 11.4053 5.83329 11.0832 5.83329H6.4165Z" fill="currentColor"></path></svg>&nbsp;Copy`;
   copyButton.addEventListener('click', handleCopyButtonClick);
 
+  const downloadButton = document.createElement('button');
+  downloadButton.id = 'download-btn';
+  downloadButton.innerHTML = '<img src="src/assets/download.svg" alt="Download">&nbsp;Download';
+  downloadButton.addEventListener('click', handleDownloadButtonClick);
+
   buttonContainer.appendChild(summaryButton);
   buttonContainer.appendChild(transcriptionButton);
   buttonContainer.appendChild(copyButton);
+  buttonContainer.appendChild(downloadButton);
 
   extensionContainer.appendChild(header);
   extensionContainer.appendChild(buttonContainer);
@@ -80,41 +86,49 @@ const handleSummaryButtonClick = async () => {
     clickTranscriptionButton();
 
     setTimeout(() => {
-      const transcriptText = getTranscriptText();
-      console.log("Fetched transcript text:", transcriptText);
-      if (transcriptText.length > 0) {
-        console.log("Sending fetchSummary request to backend script...");
-        chrome.runtime.sendMessage({ action: "fetchSummary", prompt: transcriptText }, (response) => {
-          if (chrome.runtime.lastError) {
-            console.error("Error sending message:", chrome.runtime.lastError.message);
-            setLoadingState(false);
-            loadSummary("Failed to send request to backend script.");
-          } else {
-            console.log("Received response from backend script:", response);
-          }
-        });
-      } else {
-        console.log("Transcript text is empty. Retrying...");
-        setTimeout(() => {
-          const retryTranscriptText = getTranscriptText();
-          console.log("Retry fetched transcript text:", retryTranscriptText);
-          if (retryTranscriptText.length > 0) {
-            console.log("Sending fetchSummary request to backend script...");
-            chrome.runtime.sendMessage({ action: "fetchSummary", prompt: retryTranscriptText });
-          } else {
-            console.log("Transcript text is still empty after retry.");
-            setLoadingState(false);
-            loadSummary("Transcript not available or failed to load.");
-          }
-        }, 3000);
-      }
+      fetchTranscription();
+
+      setTimeout(() => {
+        const transcriptText = getTranscriptText();
+        console.log("Fetched transcript text:", transcriptText);
+        if (transcriptText.length > 0) {
+          console.log("Sending fetchSummary request to backend script...");
+          chrome.runtime.sendMessage({ action: "fetchSummary", prompt: transcriptText }, (response) => {
+            if (chrome.runtime.lastError) {
+              console.error("Error sending message:", chrome.runtime.lastError.message);
+              setLoadingState(false);
+              loadSummary("Failed to send request to backend script.");
+            } else {
+              console.log("Received response from backend script:", response);
+            }
+          });
+        } else {
+          console.log("Transcript text is empty. Retrying...");
+          setTimeout(() => {
+            const retryTranscriptText = getTranscriptText();
+            console.log("Retry fetched transcript text:", retryTranscriptText);
+            if (retryTranscriptText.length > 0) {
+              console.log("Sending fetchSummary request to backend script...");
+              chrome.runtime.sendMessage({ action: "fetchSummary", prompt: retryTranscriptText });
+            } else {
+              console.log("Transcript text is still empty after retry.");
+              setLoadingState(false);
+              loadSummary("Transcript not available or failed to load.");
+            }
+          }, 3000);
+        }
+      }, 3000);
     }, 3000);
   }, 3000);
 };
 
-
 const handleTranscriptionButtonClick = async () => {
   console.log("Transcription button clicked");
+  fetchTranscription();
+};
+
+const handleDownloadButtonClick = async () => {
+  console.log("Download button clicked");
   setLoadingState(true);
   expandSection();
 
@@ -122,24 +136,75 @@ const handleTranscriptionButtonClick = async () => {
     clickTranscriptionButton();
 
     setTimeout(() => {
-      const transcriptText = getTranscriptText(true);
-      console.log("Fetched transcript text:", transcriptText); // Log fetched transcript
+      fetchTranscription();
+
+      setTimeout(() => {
+        const transcriptText = getTranscriptText(false);
+        console.log("Fetched transcript text:", transcriptText);
+        if (transcriptText.length > 0) {
+          const videoTitle = getVideoTitle();
+          const blob = new Blob([transcriptText], { type: 'text/plain' });
+          const url = URL.createObjectURL(blob);
+          const a = document.createElement('a');
+          a.href = url;
+          a.download = `${videoTitle}.txt`;
+          a.click();
+          URL.revokeObjectURL(url);
+        } else {
+          console.log("Transcript text is empty. Retrying...");
+          setTimeout(() => {
+            const retryTranscriptText = getTranscriptText(false);
+            console.log("Retry fetched transcript text:", retryTranscriptText);
+            if (retryTranscriptText.length > 0) {
+              const videoTitle = getVideoTitle();
+              const blob = new Blob([retryTranscriptText], { type: 'text/plain' });
+              const url = URL.createObjectURL(blob);
+              const a = document.createElement('a');
+              a.href = url;
+              a.download = `${videoTitle}.txt`;
+              a.click();
+              URL.revokeObjectURL(url);
+            } else {
+              console.log("Transcript text is still empty after retry.");
+            }
+          }, 3000);
+        }
+        setLoadingState(false);
+      }, 3000);
+    }, 3000);
+  }, 3000);
+};
+
+const fetchTranscription = () => {
+  setLoadingState(true);
+  expandSection();
+
+  setTimeout(() => {
+    clickTranscriptionButton();
+
+    setTimeout(() => {
+      const transcriptText = getTranscriptText(false);
+      console.log("Fetched transcript text:", transcriptText);
       if (transcriptText.length > 0) {
         loadSummary(transcriptText);
+        document.getElementById('download-btn').disabled = false;
       } else {
         console.log("Transcript text is empty. Retrying...");
         setTimeout(() => {
-          const retryTranscriptText = getTranscriptText(true);
-          console.log("Retry fetched transcript text:", retryTranscriptText); // Log fetched transcript on retry
+          const retryTranscriptText = getTranscriptText(false);
+          console.log("Retry fetched transcript text:", retryTranscriptText);
           if (retryTranscriptText.length > 0) {
             loadSummary(retryTranscriptText);
+            document.getElementById('download-btn').disabled = false;
           } else {
             console.log("Transcript text is still empty after retry.");
             loadSummary("Transcript not available or failed to load.");
+            document.getElementById('download-btn').disabled = true;
           }
-        }, 3000); // Retry after an additional 3 seconds
+        }, 3000);
       }
-    }, 3000); // Initial delay to ensure transcription is loaded
+      setLoadingState(false);
+    }, 4000); // Initial delay to ensure transcription is loaded
   }, 3000); // Delay to ensure section is expanded
 };
 
@@ -165,29 +230,31 @@ const clickTranscriptionButton = () => {
 
 const getTranscriptText = (withTimestamps = false) => {
   const transcriptSegments = document.querySelectorAll('ytd-transcript-segment-renderer');
-  console.log("Found transcript segments:", transcriptSegments.length); // Log number of segments found
+  console.log("Found transcript segments:", transcriptSegments.length);
   let transcriptText = '';
   transcriptSegments.forEach(segment => {
-    const time = segment.querySelector('.segment-timestamp').innerText;
     const text = segment.querySelector('.segment-text').innerText;
-    transcriptText += withTimestamps ? `${time} ${text}\n` : `${text} `;
+    transcriptText += withTimestamps ? `${text}\n` : `${text} `;
   });
   return transcriptText.trim();
+};
+
+const getVideoTitle = () => {
+  const titleElement = document.querySelector('yt-formatted-string[class="style-scope ytd-watch-metadata"]');
+  return titleElement ? titleElement.innerText : 'video_transcription';
 };
 
 const loadSummary = (summary) => {
   const summaryContainer = document.getElementById('summary-container');
   if (!summaryContainer) {
-      console.log('Summary container not found.');
-      return;
+    console.log('Summary container not found.');
+    return;
   }
-
-  summaryContainer.innerHTML = ''; // Clear previous summary
-
+  summaryContainer.innerHTML = '';
   summary.split('\n').forEach(paragraph => {
-      const summaryTextElement = document.createElement('p');
-      summaryTextElement.textContent = paragraph;
-      summaryContainer.appendChild(summaryTextElement);
+    const summaryTextElement = document.createElement('p');
+    summaryTextElement.textContent = paragraph;
+    summaryContainer.appendChild(summaryTextElement);
   });
 };
 
@@ -196,12 +263,12 @@ const handleCopyButtonClick = () => {
   if (summaryContainer) {
     const textToCopy = summaryContainer.innerText;
     navigator.clipboard.writeText(textToCopy)
-      .then(() => {
-        console.log('Summary copied to clipboard');
-      })
-      .catch(err => {
-        console.error('Error copying summary to clipboard:', err);
-      });
+        .then(() => {
+          console.log('Summary copied to clipboard');
+        })
+        .catch(err => {
+          console.error('Error copying summary to clipboard:', err);
+        });
   }
 };
 
@@ -216,7 +283,6 @@ document.addEventListener('DOMContentLoaded', () => {
   const endpointInput = document.getElementById('endpoint');
   const saveButton = document.getElementById('save-btn');
   const currentEndpoint = document.getElementById('current-endpoint');
-
   const { message } = antd;
 
   // Save button click event

@@ -35,6 +35,7 @@ body, html, div, p, button {
   justify-content: center;
   gap: 10px;
   margin-top: 12px;
+  flex-wrap: wrap;
 }
 
 .extension-icon {
@@ -86,7 +87,7 @@ body, html, div, p, button {
   justify-content: center;
 }
 
- #copy-btn {
+#copy-btn {
   background-color: #2E62FF;
   color: #fff;
   border: none;
@@ -104,15 +105,33 @@ body, html, div, p, button {
   justify-content: center;
 }
 
-#summary-btn img, #transcription-btn img {
+#download-btn {
+  background-color: #2E62FF;
+  color: #fff;
+  border: none;
+  padding: 10px 30px;
+  cursor: pointer;
+  border-radius: 10px;
+  box-shadow: 0 2px 0 rgba(109, 53, 253, 0.09);
+  transition: background-color 0.3s ease;
+  font-size: 14px;
+  display: flex;
+  align-items: center;
+  width: 106px;
+  height: 36px;
+  padding: 0;
+  justify-content: center;
+}
+
+#summary-btn img, #transcription-btn img, #copy-btn img, #download-btn img {
   margin-right: 8px;
 }
 
-#summary-btn:hover, #transcription-btn:hover, #copy-btn:hover {
+#summary-btn:hover, #transcription-btn:hover, #copy-btn:hover, #download-btn:hover {
   background-color: #00FFD0;
 }
 
-#summary-btn img, #transcription-btn img, #copy-btn img {
+#summary-btn img, #transcription-btn img, #copy-btn img, #download-btn img {
   width: 20px;
   height: 20px;
 }
